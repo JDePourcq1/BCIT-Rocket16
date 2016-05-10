@@ -1,0 +1,140 @@
+<html>
+<head>
+    <script>
+        var myTimer = null;
+        var gameTimer = null;
+        var count = 0;
+        var cars = [
+            "ready.jpg",
+            "set.png",
+            "go.jpg",
+            ""
+        ];
+        var mil = 0, sec = 0, min = 0;
+        
+        function addContent() {
+            if (count > 0) {
+                document.getElementById('readyState').removeChild(document.getElementById('state'));
+            }
+            if (count >= 3) {
+                clearInterval(myTimer);
+                myTimer = null;
+                startGame();
+                return;
+            }
+            
+            var pic = document.createElement('img');
+            /*
+            var div = document.createElement('div');
+            var phase = document.getElementById('phase');
+            
+            //this is just hard coded so that its simpler, but very messy
+            switch(count) {
+                case 1:
+                    div.innerHTML = '<p id="phase">Ready<p>';
+                    break;
+                case 2:
+                    phase.parentNode.removeChild(phase);
+                    div.innerHTML = '<p id="phase">Get Set<p>';
+                    break;
+                case 3:
+                    phase.parentNode.removeChild(phase);
+                    div.innerHTML = '<p id="phase">Go!<p>';
+                    break;
+                case 4:
+                    //phase.parentNode.removeChild(phase);
+                    startGame();
+                    break;
+                default:
+                    clearInterval(myTimer);
+                    myTimer = null;
+                    break;
+            }
+            */
+            pic.src = count + ".jpg";
+            pic.id = "state";
+            
+            document.getElementById('readyState').appendChild(pic);
+            count++;
+        }
+        
+        function startCountDown() {
+            if(count < 3) {
+                if(myTimer == null) {
+                    myTimer = setInterval('addContent();', 1000);
+                } else {
+                    clearInterval(myTimer);
+                    myTimer = null;
+                }
+            } else {
+                if(gameTimer == null) {
+                    gameTimer = setInterval('game();', 10);
+                } else {
+                    clearInterval(gameTimer);
+                    gameTimer = null;
+                }
+            }
+        }
+        
+        function startGame() {
+            var div = document.createElement('div');
+            div.id = 'game';
+            document.getElementById('content').appendChild(div);
+            gameTimer = setInterval('game();', 10);
+        }
+        
+        function pauseGame() {
+            if(count >= 3) {
+                clearInterval(gameTimer);
+                gameTimer = null;
+            }
+        }
+        
+        function stopGame() {
+            if(count >= 3) {
+                if(gameTimer != null) {
+                    clearInterval(gameTimer);
+                    gameTimer = null;
+                }
+                min = 0;
+                sec = 0;
+                mil = 0;
+                document.getElementById('game').innerHTML = '<p>'+(min)+':'+(sec)+'.'+(mil++)+'<p>';
+            }
+        }
+        
+        function game() {
+            if(mil == 100) {
+                mil = 0;
+                sec++;
+            }
+            if(sec == 60){
+                sec = 0;
+                min++;
+            }
+            document.getElementById('game').innerHTML = '<p>'+(min)+':'+(sec)+'.'+(mil++)+'<p>';
+        }
+        
+        onload = function() {
+            var start = document.getElementById('startButton');
+            var pause = document.getElementById('pauseButton');
+            var stop = document.getElementById('stopButton');
+            
+            start.onclick = startCountDown;
+            pause.onclick = pauseGame;
+            stop.onclick = stopGame;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="content">
+        <img id="startButton" src="http://www.clker.com/cliparts/5/r/I/j/O/k/another-green-start-button.svg" alt="start" width=42 height=42>
+        <img id="pauseButton" src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Pause_button_play_stop_blue.png" alt="pause" width=42 height=42>
+        <img id="stopButton" src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Stop_button_play_pause_music.png" alt="stop" width=42 height=42>
+        
+        <div id="readyState">
+        </div>
+    </div>
+</body>
+</html>
