@@ -1,0 +1,17 @@
+h1 {
+	text-align: center;
+}
+
+body {
+	background-color: rgb(25, 27, 42);
+	color: white;
+}
+
+div {
+	text-align: center;
+}
+
+.btnYah {
+	background-color: rgb(51, 164, 33);
+  	color: rgb(25, 27, 42);
+}
