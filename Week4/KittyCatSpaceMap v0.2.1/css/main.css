@@ -24,11 +24,11 @@ button {
     background-color: rgb(51, 164, 33);
     width:200px;
     margin: auto;
-    z-index: 99 !important;
+    z-index: 3 !important;
 }
 
 #user {
-    z-index: 5 !important;
+    z-index: 3 !important;
 }
 
 #state {
@@ -51,6 +51,8 @@ button {
 }
 
 #timer {
+    position:absolute;
+    z-index: 3;
     font-size: 5em;
 }
 
@@ -86,7 +88,7 @@ input {
     display: inline-block;
 	background-color: rgb(51, 164, 33);
 	float: right;
-	transition-duration: 0.1s;
+	z-index: 3;
 }
 
 #User {
