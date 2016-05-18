@@ -1,0 +1,236 @@
+body {
+    background-color: rgb(25, 27, 42) !important;
+    color: white !important;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    max-height:100%;
+}
+
+button {
+    background-color: rgb(51, 164, 33);
+    width:200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#state {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+#testCanvas {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#timer {
+    font-size: 5em;
+}
+
+input {
+    background-color: rgb(51, 164, 33);
+}
+
+#menu {
+    position:absolute;
+    width:75%;
+    height:50%;
+    background:black;
+    left:12.5%;
+    top:25%;
+    padding-top:10px;
+    z-index:3;
+}
+
+#HB {
+	padding: 15px 15px;
+	margin: 2px;
+    text-align: center;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	float: right;
+	transition-duration: 0.1s;
+}
+
+.burger {
+	padding: 15px 15px;
+	margin: 2px;
+    text-align: center;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	float: right;
+	transition-duration: 0.1s;
+}
+
+.burger:hover {
+	box-shadow: 0 6px 10px 0 gray, 0 6px 10px 0 gray;
+	padding: 17px 17px;
+}
+
+#User {
+	padding: 15px 15px;
+	margin: 2px;
+    text-align: center;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	float: right;
+	transition-duration: 0.1s;
+}
+
+#User:hover {
+	box-shadow: 0 6px 10px 0 gray, 0 6px 10px 0 gray;
+	padding: 17px 17px;
+}
+
+#Launch {
+	padding: 10px 20px;
+	margin: 2px;
+    text-align: center;
+	font-size: 40px;
+	font-family: Arial;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	transition-duration: 0.1s;
+}
+
+#Launch:hover {
+	box-shadow: 0 6px 10px 0 gray, 0 6px 10px 0 gray;
+	padding: 12px 22px;
+}
+
+#jumbotron {
+	color: white;
+	text-align: center;
+	font-family: impact;
+	text-shadow: 2px 2px 8px rgb(51, 164, 33);
+	padding: 0 0;
+	margin: auto;
+	background-color: rgb(25, 27, 42);
+}
+
+#iconsTable {
+	width: 100%;
+	margin: auto;
+	color: white;
+}
+
+#nose {
+	background-color: black;
+	position: absolute;
+	margin-top: 97px;
+	margin-left: 405px;
+	width: 10px;
+	height: 4px;
+}
+
+#nose:hover {
+	background-color: red;
+}
+
+#catTable {
+	width: 487px;
+	height: 181px;
+	margin: auto;
+}
+
+#rocketCat {
+	margin: auto;
+}
+
+#rcPic {
+	width: 487px;
+	height: 181px;
+}
+
+#easterEgg {
+	display: none;
+	background-color: #ffcc99;
+	color: black;
+	text-align: center;
+	padding: 5%;
+	margin: auto;
+	width: 80%;
+	height: 300%;
+	transition-duration: 0.4s;
+}
+
+#eggBox {
+	padding: 0% 100%;
+}
+
+#egg1 {
+	height: 80px;
+	width: 80px;
+	float: left;
+}
+
+#egg2 {
+	height: 80px;
+	width: 80px;
+	float: right;
+}
+
+#mainMenu {
+	padding: 15px 15px;
+	margin: 2px;
+    text-align: center;
+	font-size: 40px;
+    display: inline-block;
+	background-color: white;
+	color: #ffcc99;
+	transition-duration: 0.1s;
+}
+
+#mainMenu:hover {
+	padding: 17px 17px;
+	box-shadow: 0 6px 10px 0 gray, 0 6px 10px 0 gray;
+}
+
+#leaderboard {
+	color: white;
+	margin: auto;
+	text-align: center;
+}
+
+#topTen {
+	margin: auto;
+	width: 70%;
+}
+
+th {
+	text-align: center;
+}
+
+td {
+	text-align: left;
+}
+
+#return {
+	padding: 10px 15px;
+	margin: 5px;
+    text-align: center;
+	font-size: 40px;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	color: white;
+	transition-duration: 0.1s;
+}
+
+#return:hover {
+	padding: 17px 17px;
+	box-shadow: 0 6px 10px 0 gray, 0 6px 10px 0 gray;
+}
+
+	
