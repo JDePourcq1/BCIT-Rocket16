@@ -1,0 +1,56 @@
+@media screen and (max-width: 480px) {
+	#catTable {
+		width: 182px;
+		height: 67px;
+	}
+	#rcPic {
+		width: 182px;
+		height: 67px;
+	}
+	#nose {
+		display: none;
+	}
+	#Launch {
+		font-size: 20px;
+		padding: 5px 10px;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 600px) {
+	#catTable {
+		width: 285px;
+		height: 106px;
+	}
+	#rcPic {
+		width: 285px;
+		height: 106px;
+	}
+	#nose {
+		margin-left: 237px;
+		margin-top: 56px;
+	}
+	#Launch {
+		font-size: 30px;
+		padding: 8px 15px;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+	#catTable {
+		width: 365px;
+		height: 135px;
+	}
+	#rcPic {
+		width: 365px;
+		height: 135px;
+	}
+	#nose {
+		margin-left: 303px;
+		margin-top: 72px;
+	}
+	#Launch {
+		font-size: 30px;
+		padding: 8px 15px;
+	}
+}
+
