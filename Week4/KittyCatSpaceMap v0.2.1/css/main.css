@@ -88,7 +88,7 @@ input {
     display: inline-block;
     background-color: rgb(51, 164, 33);
     float: right;
-    z-index: 5 !important;
+    z-index: 99 !important;
 }
 
 #User {
