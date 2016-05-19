@@ -85,9 +85,10 @@ input {
     padding: 15px 15px;
     margin: 2px;
     text-align: center;
-    display: inline-block;
     background-color: rgb(51, 164, 33);
-    float: right;
+    position: absolute;
+    top: 0px;
+    right: 0px;
     z-index: 99 !important;
 }
 
@@ -95,10 +96,10 @@ input {
 	padding: 15px 15px;
 	margin: 2px;
     text-align: center;
-    display: inline-block;
 	background-color: rgb(51, 164, 33);
-	float: right;
-	transition-duration: 0.1s;
+	position: absolute;
+	top: 0px;
+	right: 3.5em;
 }
 
 #Launch {
