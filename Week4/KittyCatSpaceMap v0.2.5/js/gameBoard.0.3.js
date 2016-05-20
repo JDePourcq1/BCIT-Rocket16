@@ -496,7 +496,7 @@ document.getElementById('course01').onclick = function() {
 
 document.getElementById('update').onclick = function() {
 	chosen = [];
-	count = 0;
+	count = 5;
     board.setObjectives(challenges[0]);
 }
 
