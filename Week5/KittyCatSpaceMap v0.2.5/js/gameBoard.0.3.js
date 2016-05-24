@@ -486,7 +486,7 @@ var goToResults = function() {
 
 document.getElementById('course01').onclick = function() {
 	board.resetNodesAndPath();
-	board.setupBoard(1);
+	board.setupBoard(0);
     startCountDown();
     $.ajax({
         type: 'GET',
