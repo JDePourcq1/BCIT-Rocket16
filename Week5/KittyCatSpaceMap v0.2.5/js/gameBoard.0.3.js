@@ -320,19 +320,23 @@ function GameBoard() {
 		var nodes = this.nodeArray;
 		var endPoint = nodes[i].node.position;
 		
-		var speed = 0;
-		//this.traveller.rotateT(endPoint);
+		var length = 0, travelled = 0, segX = 0, segY = 0, angle, speed = 3;
 
 		this.traveller.icon.onFrame = function(event) {
 			
-			if (Math.round(this.position.x) == endPoint.x && Math.round(this.position.y) == endPoint.y) {
+			if (length <= travelled) {
+				this.position = endPoint;	
 				i = path.shift();
 				if (i != null) {	
-
+					travelled = 0;
 					endPoint = nodes[i].node.position;
-					speed = this.position.getDistance(endPoint) / 10;
-					console.log(speed.toPrecision(3) + ' ' + this.position.getDistance(endPoint) + ' ' + event.time.toPrecision(3));
-					board.traveller.rotateT(endPoint);
+					length = this.position.getDistance(endPoint);
+					angle = board.traveller.rotateT(endPoint);
+
+					angle = (angle - 90) * (Math.PI / 180);
+					segX = (Math.cos(angle)) * speed;
+					segY = (Math.sin(angle)) * speed;
+
 				} else {
 					this.rotation = 0;
                     if(count != 9) {
@@ -344,9 +348,9 @@ function GameBoard() {
                     
 				}
 			}
-			speed += event.delta * 10;
-			this.position.x += (endPoint.x - this.position.x)/speed;
-			this.position.y += (endPoint.y - this.position.y)/speed;
+			travelled += Math.sqrt(Math.pow(segX,2) + Math.pow(segY,2));
+			this.position.x = this.position.x + segX;
+			this.position.y = this.position.y + segY;
 		}
 		
 	}
