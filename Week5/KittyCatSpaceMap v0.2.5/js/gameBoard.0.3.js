@@ -172,6 +172,7 @@ function Traveller(posPoint, nodeId) {
 		this.icon.rotation = 0;
 		this.icon.rotate(
 			(Math.atan2(endPoint.y - this.icon.position.y, endPoint.x - this.icon.position.x) * 180 / Math.PI) + 90);
+		return this.icon.rotation;
 	}
 		
 	this.icon.onClick = function(event) {
@@ -309,7 +310,7 @@ function GameBoard() {
 		}		
 	}
 
-	// moveTraveller requires param as {x:n1, y:n2}, {x:n3, y:n4}
+	// moveTraveller 
 	this.moveTraveller = function(){
         
         this.setAllUnSelectable();
@@ -323,11 +324,10 @@ function GameBoard() {
 		var length = 0, travelled = 0, segX = 0, segY = 0, angle, speed = 3;
 
 		this.traveller.icon.onFrame = function(event) {
-			
 			if (length <= travelled) {
 				this.position = endPoint;	
 				i = path.shift();
-				if (i != null) {	
+				if (i != null) {
 					travelled = 0;
 					endPoint = nodes[i].node.position;
 					length = this.position.getDistance(endPoint);
