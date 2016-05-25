@@ -1,3 +1,4 @@
+//global vars
 var canvas;
 var board;
 var chosen = [];
@@ -19,6 +20,7 @@ var nodeColor = {
 	array: ['#ff1d25', '#3fa9f5', '#7ac943', '#ff931e', '#ff7bac']
 };
 
+//node state enum object
 var nodeState = {
 	s0: 'default',
 	s1: 'selected',
@@ -27,12 +29,14 @@ var nodeState = {
 	s4: 'startPoint'
 }
 
+//node icons url
 var nodeIcon = {
 	default: 'img/icon_obj_default.png',
 	start: 'img/icon_obj_start.png',
 	array: ['img/icon_obj_01.png','img/icon_obj_02.png','img/icon_obj_03.png']
 }
 
+//styles for the paths
 var pathStyle = {
 	default: {
 		strokeColor: '#333333',
@@ -51,15 +55,17 @@ var pathStyle = {
 	}
 }
 
-
+//node class
 function Node(xpos, ypos, id) {
 	this.name = 'node' + id;
 	this.selectable = false;
+	//the primative shape and colour
 	this.node = new paper.Shape.Circle({
 		center: [xpos, ypos],
 		radius: 12.5,
 		fillColor: nodeColor.default
 	});
+	//the overlaid icon
 	this.icon = new paper.Raster({
 		data: {
 			id: id,
@@ -70,13 +76,13 @@ function Node(xpos, ypos, id) {
 		position: [xpos, ypos]
 	});
 
-	
-	
+	//gets the coordinates of this node
 	this.getCoords = function() {
 		var point = new paper.Point(this.node.position.x, this.node.position.y);
 		return point;
 	}
 
+	//sets node as an objective, param sets it as the start point or not
 	this.setObjective = function(start) {
 		this.node.fillColor = nodeColor.array[Math.floor(Math.random() * nodeColor.array.length)];
 		if (start) {
@@ -88,11 +94,12 @@ function Node(xpos, ypos, id) {
 		}
 	}
 
+	//sets the node to selectable or not, adds a glow if it is
 	this.setSelectable = function(state) {
 		if (state && this.icon.data.nodeState != nodeState.s1) {
 			this.icon.data.selectable = true;
 			this.node.style = {
-				shadowColor: '#82F5F5',
+				shadowColor: '#FFEE00',
 				shadowBlur: 12
 			}
 		} else {
@@ -104,6 +111,7 @@ function Node(xpos, ypos, id) {
 		}
 	}
     
+    	//resets the node to its default state
 	this.resetNode = function() {
 		this.node.fillColor = nodeColor.default;
 		this.icon.source = nodeIcon.default;
@@ -111,6 +119,7 @@ function Node(xpos, ypos, id) {
 		this.icon.data.nodeState = nodeState.s0
 	}
 
+	//setup the click function for a node
 	this.icon.onClick = function(event) {
 		if (this.data.selectable) {
 			if (this.data.nodeState == nodeState.s3) {
@@ -122,6 +131,7 @@ function Node(xpos, ypos, id) {
 	}
  };
 
+//path class
 function Path(startPos, endPos) {
 	this.line = new paper.Path.Line({
 		from: startPos,
@@ -131,18 +141,22 @@ function Path(startPos, endPos) {
 	});
 }
 
+//userpath class, sets the users path.
 function UserPath(startPos) {
 	this.userLine = new paper.Path.Line({
 		segments: [startPos],
 		name: 'userPath'
 	});
+	//these make sure the user path is below the nodes
 	this.userLine.moveBelow(board.nodeArray[0].node);
 	this.userLine.style = pathStyle.selected;
 
+	//not currently used, is to set the line after the traveller moves over it
 	this.setUserTravelled = function() {
 		this.userLine.style = pathStyle.travelled;
 	}
 
+	//adds a new segment to the path
 	this.addUserPath = function(endPos) {
 		this.userLine.add(endPos);
 		if (this.userLine.segments[0].equals(endPos)) {
@@ -152,12 +166,13 @@ function UserPath(startPos) {
 		}
 	}
 
+	//deletes the last segment
 	this.removeUserPath = function() {
 		this.userLine.removeSegment(this.userLine.segments.length-1);
 	}
 }
 
-
+//traveller Object - takes position and node to create it over
 function Traveller(posPoint, nodeId) {
 	this.icon = new paper.Raster({
         
@@ -168,22 +183,28 @@ function Traveller(posPoint, nodeId) {
 		}
 			});
 
+	//rotates the traveller to be pointing at the given point - returns the rotation in degrees
 	this.rotateT = function(endPoint){
 		this.icon.rotation = 0;
 		this.icon.rotate(
 			(Math.atan2(endPoint.y - this.icon.position.y, endPoint.x - this.icon.position.x) * 180 / Math.PI) + 90);
 		return this.icon.rotation;
 	}
-		
+	
+	//adds the final click function to traveller	
 	this.icon.onClick = function(event) {
+		//checks to see if the node below is clickable
 		if(board.nodeArray[this.data.id].icon.data.selectable){
+			//checks how the button shoud work - if only one user path is set, then it steps back
 			if(board.pathArray.length <= 1) {
 				board.stepBackUserPath();
 			} else {
 				board.setUserPath(this.data.id);
+				//checks if the user path is complete
 				if (board.isPathComplete()) {
 					board.moveTraveller();
 				} else {
+					//pops an alert and steps back path if not complete
 					alert('You missed some objectives.');
 					board.stepBackUserPath();
 				}
@@ -192,6 +213,7 @@ function Traveller(posPoint, nodeId) {
 	}
 }
 
+// GameBoard Object - main object that handles the viewable game pieces
 function GameBoard() {
 	this.nodeArray = [];
 	this.pathArray = [];
@@ -201,7 +223,7 @@ function GameBoard() {
 	this.userPath = null;
 	this.activeNode;
 
-
+	//clears and resets the entire game board
 	this.resetMap = function() {
 		this.nodeArray = [];
 		this.pathArray = [];
@@ -212,6 +234,7 @@ function GameBoard() {
 		paper.project.clear();
 	}
 
+	//reads a map matrix as a string and returns it as 2d array
 	this.readMapMatrix = function(inputString){
 		this.mapMatrix = [];
 		var nodeLines = inputString.split('\|');
@@ -225,6 +248,8 @@ function GameBoard() {
 		return this.mapMatrix;
 	};
 
+	//calls for the map matrix with the given level number and sets up the  default nodes and connecting paths
+	// also ensures that the board is centered and at the right zoom factor
 	this.setupBoard = function(levelNum) {
         var course;
         $.ajax({
@@ -252,8 +277,11 @@ function GameBoard() {
                 }
             }
         }
+        centerBoard();
+	zoomBoard();
 	}
 
+	//sets the given node surrounding nodes as selectable and resets the others to unselectable
 	this.setSelectables = function(nodeNum) { 
 		for (var i = 2; i < this.mapMatrix[nodeNum].length; i++) {
 			var node = this.nodeArray[i-2];
@@ -266,12 +294,14 @@ function GameBoard() {
 		}
 	} 
     
-    this.setAllUnSelectable = function() {
+	 //resets all nodes as unselectable
+	 this.setAllUnSelectable = function() {
 		this.nodeArray.forEach(function(node){
 			node.setSelectable(false);
 		});
 	}
 
+	//takes an array of challenges and sets them as an objective, it sets the first item as the start point.
 	this.setObjectives = function(objectiveArray) {
 		this.resetNodesAndPath();
 		this.activeChallenge = objectiveArray;
@@ -289,6 +319,7 @@ function GameBoard() {
 		}
 	}
 
+	//resets all nodes to default and clears the traveller and any user paths
 	this.resetNodesAndPath = function() {
 		if (this.nodeArray.length > 0) {
 			for (var i = 0; i < this.nodeArray.length; i++) {
@@ -321,8 +352,10 @@ function GameBoard() {
 		var nodes = this.nodeArray;
 		var endPoint = nodes[i].node.position;
 		
+		//total Length of path segment, current distance travelled, X dimension of path, Y dimension of path, anlge of path, speed factor
 		var length = 0, travelled = 0, segX = 0, segY = 0, angle, speed = 3;
-
+		
+		//animates the traveller movement
 		this.traveller.icon.onFrame = function(event) {
 			if (length <= travelled) {
 				this.position = endPoint;	
@@ -355,13 +388,14 @@ function GameBoard() {
 		
 	}
 
+	//when user clicks a selectable node, this adds it to the pathArray, changes the selectables to the new node and changes node states
 	this.setUserPath = function(nodeNum) {
-		console.log(nodeNum);
 		if(this.pathArray.length == 0) {
 			this.pathArray.push(this.activeChallenge[0]);
 		} else {
 
 			var lastPointState = this.nodeArray[this.pathArray[this.pathArray.length-1]].icon.data.nodeState;
+			//checks if startpoint
 			if (lastPointState != nodeState.s4){
 				this.nodeArray[this.pathArray[this.pathArray.length-1]].icon.data.nodeState = nodeState.s1;
 			}
@@ -375,6 +409,7 @@ function GameBoard() {
 		this.setSelectables(nodeNum);
 	}
 
+	//steps the user path back to the last selected node.
 	this.stepBackUserPath = function() {
 		var nodeNum = this.pathArray.pop();
 		this.activeNode = nodeNum;
@@ -390,6 +425,7 @@ function GameBoard() {
 		this.setSelectables(nodeNum);
 	}
 
+	//checks that the userpath passes through all of the activechallenge objectives.
 	this.isPathComplete = function(){
 		var is = true;
 		this.activeChallenge.forEach(function(id){
@@ -401,6 +437,7 @@ function GameBoard() {
 		return is;
 	}
     
+    //setup the next randomish challenge
     this.nextChallenge = function () {
         if(count == 8) {
             board.setObjectives(challenges[challenges.length-1]);
@@ -517,4 +554,21 @@ window.onload = function() {
 	canvas = document.getElementById('GameBoard');
 	paper.setup(canvas);
 	board = new GameBoard();
+
+	// this resizes and centers the game board when the canvas is resized
+	paper.view.onResize = function(event) {
+		centerBoard();
+		zoomBoard();
+	}
+}
+
+//Center game board to canvas
+function centerBoard() {
+	paper.project.activeLayer.position = paper.view.center;
+}
+
+//Zooms the game board in relation to the canvas
+function zoomBoard() {
+	var zoomFactor = canvas.width <= canvas.height ? canvas.width / 480 : canvas.height / 320;
+	paper.view.zoom = zoomFactor;
 }
