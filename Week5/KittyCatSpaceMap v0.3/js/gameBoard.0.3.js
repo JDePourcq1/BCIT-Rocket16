@@ -580,10 +580,7 @@ document.getElementById('update').onclick = function() {
 }
 
 window.onload = function() {
-	window.scrollTo(0,1); //hides mobile menu bar
 	canvas = document.getElementById('GameBoard');
-	canvas.width = document.body.offsetWidth;
-	canvas.height = document.body.offsetHeight;
 	paper.setup(canvas);
 	board = new GameBoard();
 
