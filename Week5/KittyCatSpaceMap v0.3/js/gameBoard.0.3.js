@@ -597,7 +597,8 @@ window.onload = function() {
  * Center game board to canvas
  */
 function centerBoard() {
-	paper.view.center = { x: canvas.width/2, y: canvas.height/2};
+	paper.view.center.x = canvas.width/2;
+	paper.view.center.y = canvas.height/2;
 	paper.project.activeLayer.position = paper.view.center;
 }
 
