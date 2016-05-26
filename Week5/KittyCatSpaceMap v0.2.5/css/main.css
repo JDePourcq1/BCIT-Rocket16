@@ -32,6 +32,8 @@ button {
     width:200px;
     margin: auto;
     z-index: 99 !important;
+    display: inline-block;
+    border: none;
 }
 
 #username {
@@ -214,6 +216,10 @@ td {
 	text-align: center;
 }
 
+.col-sm-6 img {
+    cursor: pointer;
+}
+
 .return {
 	padding: 10px 10px;
 	margin: 5px;
@@ -278,3 +284,11 @@ td {
     padding:10px;
     z-index:3;
 }
+
+
+#default_node_img { background: url(img/icon_obj_default.png) no-repeat -9999px -9999px;}
+#start_node_img { background: url(img/icon_obj_start.png) no-repeat -9999px -9999px;}
+#obj01_node_img { background: url(img/icon_obj_01.png) no-repeat -9999px -9999px;}
+#obj02_node_img { background: url(img/icon_obj_02.png) no-repeat -9999px -9999px;}
+#obj03_node_img { background: url(img/icon_obj_03.png) no-repeat -9999px -9999px;}
+#traveller_rocket { background: url(img/traveller_rocket.png) no-repeat -9999px -9999px;}
