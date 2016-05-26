@@ -607,8 +607,8 @@ function centerBoard() {
  function zoomBoard() {
 	var lbounds = paper.project.activeLayer.bounds;
 	var vbounds = {
-		width: canvas.width,
-		height: canvas.height
+		width: document.body.offsetWidth,
+		height: document.body.offsetHeight
 	};
 
 	var zoomFactorW = (vbounds.width * 0.9) / 480;
