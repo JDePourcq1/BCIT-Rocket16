@@ -209,7 +209,7 @@ $(document).ready(function(){
     //sign out button
     $('#signout').click(function() {
         currentUser = null;
-		deleteCookie();
+		deleteCookie("cookieUser");
         document.getElementById("username").innerHTML = "";
         document.getElementById('profileButton').innerHTML = "Sign-In";
         $('#mainPage').attr('style', 'display: none;');
