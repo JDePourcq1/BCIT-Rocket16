@@ -7,10 +7,11 @@
 		
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/main.css"/>
-        <link rel="stylesheet" href="css/matt.css"/>
 		<link rel="stylesheet" href="css/mobile.css"/>
 		<link rel="stylesheet" href="css/multi-screen-css.css" type="text/css" />
         
+        <script type="text/javascript" src="js/course.js"></script>
+        <script type="text/javascript" src="js/course.js"></script>
         <script type="text/javascript" src="js/time.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script type="text/javascript" src="js/multi-screen.js"></script>
@@ -18,6 +19,7 @@
         <script type="text/javascript" src="js/burger.js"></script>
         <script type="text/javascript" src="js/database.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
+        <script type="text/javascript" src="js/cookie.js"></script>
         
         <meta charset="utf-8">
 	</head>
@@ -25,6 +27,11 @@
 	<body id="body">
         <audio id="BGM" src="sound\DuckTales_Duck_Blur_OC_ReMix.mp3" loop="loop"></audio>
 		<audio id="SFX" src="sound\sfx2.wav"></audio>
+    
+        <!--PORTRAIT MODE WRAPPER-->
+        <div class="portrait">
+            <p>This game is optimized for landscape mode!!!</p>
+        </div>
     
         <!--CURRENT USER-->
         <div id="username">
@@ -69,6 +76,9 @@
         
             <div id="screen1" class="ms-container ms-default">
                 <!-- screen1 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
                 <div class="burger">
                     <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
                 </div>                
@@ -85,36 +95,20 @@
                     </div>
                     <br />
                     
-                    <div class="row">
-                        <div class="col-sm-3">
-                            
-                        </div>
-                        <div class="col-sm-6">
-                            <img id="course01" src="img\level1.jpg" alt="World 1" >
-                        </div>
-                        <div class="col-sm-3">
-                            <button id="triangle-right" class="ms-nav-link" data-ms-target="screen2" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
-                        </div>
+                    <div>
+                        <div class="triangle"></div>    
+                        <img id="course1" src="img\course1.png" alt="World 1" class="courseImg" onclick="goToCourse(0);">
+                        <button id="triangle-right" class="ms-nav-link triangle" data-ms-target="screen2" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
                     </div>
-                    
-                    <br /><br />
-                        
-                    <!--******For Testing Purposes******-->
-                    <button id="score" class="button" type="button">increase score</button>
-                    <div id="output">2</div>
-                
-                    <p id ="test"></p>
-                    <button id="test" class="button" onclick="myfunction()">test unlock</button>
-                    
-                    <button class="button" onclick="disable()"> disable right</button>
-                    
-                    
                 </div>
                 <div id="menuDiv"></div>
             </div>
 
             <div id="screen2" class="ms-container">
                 <!-- screen2 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
                 <div class="burger">
                     <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
                 </div>
@@ -132,15 +126,9 @@
                     <br />
                     
                     <div class="row">
-                        <div class="col-sm-3">
-                            <button id="triangle-left" class="ms-nav-link" data-ms-target="screen1" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
-                        </div>
-                        <div class="col-sm-6">
-                            <img src="img\level1.jpg" alt="World 1" >
-                        </div>
-                        <div class="col-sm-3">
-                            <button id="triangle-right" class="ms-nav-link" data-ms-target="screen3" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
-                        </div>
+                            <button id="triangle-left" class="ms-nav-link triange" data-ms-target="screen1" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                            <img id="course2" src="img\course2.png" alt="World 2" class="courseImg" onclick="goToCourse(1);">
+                            <button id="triangle-right" class="ms-nav-link trianlge" data-ms-target="screen3" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
                     </div>
                 </div>
                 
@@ -149,6 +137,9 @@
             
             <div id="screen3" class="ms-container">
                 <!-- screen3 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
                 <div class="burger">
                     <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
                 </div> 
@@ -165,13 +156,83 @@
                     <br />
                     
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="triangle">
                             <button id="triangle-left" class="ms-nav-link" data-ms-target="screen2" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
                         </div>
-                        <div class="col-sm-6">
-                            <img src="img\level1.jpg" alt="World 1" >
+                        <div class="courseImg">
+                            <img id="course3" src="img\course3.png" alt="World 3" onclick="goToCourse(2);">
                         </div>
-                        <div class="col-sm-3">
+                        <div class="triangle">
+                            <button id="triangle-right" class="ms-nav-link" data-ms-target="screen4" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                        </div>
+                    </div>
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+            
+            <div id="screen4" class="ms-container">
+                <!-- screen4 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div> 
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 4 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                        <div class="triangle">
+                            <button id="triangle-left" class="ms-nav-link" data-ms-target="screen3" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                        </div>
+                        <div class="courseImg">
+                            <img id="course4" src="img\course4.png" alt="World 4" onclick="goToCourse(3);">
+                        </div>
+                        <div class="triangle">
+                            <button id="triangle-right" class="ms-nav-link" data-ms-target="screen5" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                        </div>
+                    </div>
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+            
+            <div id="screen5" class="ms-container">
+                <!-- screen5 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div> 
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 5 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                        <div class="triangle">
+                            <button id="triangle-left" class="ms-nav-link" data-ms-target="screen4" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                        </div>
+                        <div class="courseImg">
+                            <img id="course5" src="img\course5.png" alt="World 4" onclick="goToCourse(4);">
+                        </div>
+                        <div class="triangle">
                             
                         </div>
                     </div>
@@ -183,31 +244,6 @@
                 <!--master screen content-->
                 <p>master</p>
             </div>
-            
-            
-            <!-- functions -->
-            <script>
-				$('#score').click(function() {
-					$('#output').html(function(i, val) { return val*1+5 });
-				});
-				
-				
-				function myfunction(){
-					var number = parseInt($('#output').text().trim(),10);
-					if( number > 7){
-						$("#test").html("<p>unlocking right</p>");
-						$('#triangle-right').prop("disabled",false);
-					}
-				}
-				
-				function disable(){
-					$('#triangle-right').prop("disabled",true);
-				} 
-				
-				function unlock(){
-					$('#triangle-right').prop("disabled",false);
-				}
-            </script>
         </div>
         
         <!--LOGIN SCREEN-->
@@ -282,10 +318,16 @@
             
             <h2 id="resultScore"></h2>
             
-            <div id="resultButtons">
-                <button id="profileButton" class="btn">Sign-In</button>
-                <button id="retryButton" class="btn">Retry</button>
-                <button id="continueButton" class="btn">Continue</button>
+            <div id="resultButtons" class="container">
+                <div class="col-xs-4" style="padding:5px;">
+                    <button id="profileButton" class="btn menuButton">Sign-In</button>
+                </div>
+                <div class="col-xs-4" style="padding:5px;">
+                    <button id="retryButton" class="btn menuButton">Retry</button>
+                </div >
+                <div class="col-xs-4" style="padding:5px;">
+                    <button id="continueButton" class="btn menuButton">Continue</button>
+                </div>
             </div>
         </div>
         
@@ -296,7 +338,16 @@
             </div> 
             
 			<h1>Top Ten</h1>
-			
+            <h2 id="leaderCourse">Course</h2>
+			<div>
+                <button id="L1" class="btn leaderButton current" onclick="setupLeaderboard(0);">1</button>
+                <button id="L2" class="btn leaderButton" onclick="setupLeaderboard(1);">2</button>
+                <button id="L3" class="btn leaderButton" onclick="setupLeaderboard(2);">3</button>
+                <button id="L4" class="btn leaderButton" onclick="setupLeaderboard(3);">4</button>
+                <button id="L5" class="btn leaderButton" onclick="setupLeaderboard(4);">5</button>
+            </div>
+            <br>
+            
 			<table class="table" id="topTen">
 				<tr>
 					<th>Name</th>
@@ -304,10 +355,6 @@
 					<th>Score</th>
 				</tr>
 			</table>
-			
-			<div id="refresh">
-				<span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
-			</div>
 			
 			<div class="return">
 				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true" ></span>
@@ -336,7 +383,19 @@
 				</tr>
 				<tr>
 					<td>1</td>
-					<td id="course1Best"></td>
+					<td id="course1Best">N/A</td>
+				</tr>
+                <tr>
+					<td>2</td>
+					<td id="course2Best">N/A</td>
+				</tr>
+                <tr>
+					<td>3</td>
+					<td id="course3Best">N/A</td>
+                </tr>
+                <tr>
+					<td>4</td>
+					<td id="course4Best">N/A</td>
 				</tr>
 			</table>
 			
@@ -392,7 +451,7 @@
             
             <button id="update" style="display:none;"></button>
             
-            <canvas id="GameBoard" height='360' width='480'></canvas>
+            <canvas id="GameBoard" resize='true' keepalive='true'></canvas>
 
             <script src="js/plugins.js"></script>
             <script type="text/javascript" src="js/vendor/paper-full.js"></script>
