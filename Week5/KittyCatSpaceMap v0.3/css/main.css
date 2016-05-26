@@ -102,7 +102,7 @@ input {
 }
 
 .burger {
-    padding: 15px 15px;
+    padding: 10px;
     margin: 2px;
     text-align: center;
     background-color: rgb(51, 164, 33);
@@ -110,27 +110,30 @@ input {
     top: 0px;
     right: 0px;
     z-index: 99 !important;
+    cursor: pointer;
 }
 
 .leader {
-    padding: 15px 15px;
+    padding: 10px;
     margin: 2px;
     text-align: center;
     background-color: rgb(51, 164, 33);
     position: absolute;
     top: 0px;
-    right: 3.5em;
+    right: 2.75em;
     z-index: 99 !important;
+    cursor: pointer;
 }
 
 #User {
-	padding: 15px 15px;
+	padding: 10px;
 	margin: 2px;
     text-align: center;
 	background-color: rgb(51, 164, 33);
 	position: absolute;
 	top: 0px;
-	right: 7em;
+	right: 5.4em;
+    cursor: pointer;
 }
 
 #Launch {
