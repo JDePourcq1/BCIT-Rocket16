@@ -573,5 +573,7 @@ function zoomBoard() {
 	var vbounds = paper.view.bounds;
 	var zoomFactor = lbounds.width <= lbounds.height ? vbounds.width / 480 : vbounds.height / 320;
 	console.log(zoomFactor);
+	console.log(lbounds);
+	console.log(vbounds);
 	paper.view.zoom = zoomFactor;
 }
