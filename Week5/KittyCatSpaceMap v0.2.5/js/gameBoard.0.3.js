@@ -277,7 +277,7 @@ function GameBoard() {
                 }
             }
         }
-        centerBoard();
+    centerBoard();
 	zoomBoard();
 	}
 
@@ -552,6 +552,8 @@ document.getElementById('update').onclick = function() {
 
 window.onload = function() {
 	canvas = document.getElementById('GameBoard');
+	canvas.width = document.body.offsetWidth;
+	canvas.height = document.body.offsetHeight;
 	paper.setup(canvas);
 	board = new GameBoard();
 
@@ -570,10 +572,16 @@ function centerBoard() {
 //Zooms the game board in relation to the canvas
 function zoomBoard() {
 	var lbounds = paper.project.activeLayer.bounds;
-	var vbounds = paper.view.bounds;
-	var zoomFactor = lbounds.width <= lbounds.height ? vbounds.width / 480 : vbounds.height / 320;
-	console.log(zoomFactor);
-	console.log(lbounds);
-	console.log(vbounds);
-	paper.view.zoom = zoomFactor;
+	var vbounds = {
+		width: canvas.width,
+		height: canvas.height
+	};
+
+	var zoomFactorW = (vbounds.width * 0.9) / 480;
+	var zoomFactorH = (vbounds.height * 0.9) / 320;
+
+	zoomFactorW <= zoomFactorH ? paper.view.zoom = zoomFactorW : paper.view.zoom = zoomFactorH;
+	
+	//lbounds.width <= lbounds.height ? (vbounds.width * 0.9) / 480 : (vbounds.height * 0.9) / 320;
+	//paper.view.zoom = zoomFactor;
 }
