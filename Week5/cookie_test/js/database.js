@@ -169,6 +169,8 @@ function checkCookie(){
 	var cookieCat=getCookie("cookieUser");
     if (cookieCat != "") {
         currentUser = cookieCat;
+		document.getElementById("username").innerHTML = "<p>" + currentUser +"</p>";
+		document.getElementById('profileButton').innerHTML = "Profile";
     }
 }
 
