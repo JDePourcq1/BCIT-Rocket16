@@ -583,6 +583,8 @@ window.onload = function() {
 	canvas = document.getElementById('GameBoard');
 	paper.setup(canvas);
 	board = new GameBoard();
+	canvas.width = document.body.offsetWidth;
+	canvas.height = document.body.offsetHeight;
 
 	// this resizes and centers the game board when the canvas is resized
 	paper.view.onResize = function(event) {
