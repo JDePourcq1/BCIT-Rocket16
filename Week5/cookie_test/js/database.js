@@ -174,6 +174,10 @@ function checkCookie(){
     }
 }
 
+function deleteCookie(){
+	document.cookieUser = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
+
 window.onload = function() {
 	checkCookie();
 }
