@@ -1,0 +1,313 @@
+body {
+    background-color: rgb(25, 27, 42) !important;
+    color: white !important;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    max-height:100%;
+    margin-top: 0px;
+}
+
+form {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+label {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.triangle {
+    width: 20%;
+}
+
+.courseImg {
+    width: 50%;
+}
+
+.menuButton {
+    background-color: rgb(51, 164, 33);
+    width:200px;
+    margin: 1.5em auto;
+    z-index: 99 !important;
+}
+
+.leaderButton {
+    background-color: rgb(51, 164, 33);
+    width: 40px;
+    height: 40px;
+}
+
+.current {
+    background-color: rgb(34, 145, 16);
+    font-size: 1.5em;
+    width: 50px;
+    height: 50px;
+}
+
+#username {
+    font-size: 1em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    z-index: 5;
+}
+
+#state {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+#GameBoard {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+#timer {
+    font-size: 2em;
+    text-align: left;
+}
+
+input {
+    background-color: rgb(51, 164, 33);
+}
+
+#menu {
+    position:absolute;
+    width: 50em;
+    height: 35em;
+    background:black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:10px;
+    z-index:3;
+}
+
+#HB {
+	padding: 15px 15px;
+	margin: 2px;
+    text-align: center;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	float: right;
+	transition-duration: 0.1s;
+}
+
+.burger {
+    padding: 15px 15px;
+    margin: 2px;
+    text-align: center;
+    background-color: rgb(51, 164, 33);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 99 !important;
+}
+
+.leader {
+    padding: 15px 15px;
+    margin: 2px;
+    text-align: center;
+    background-color: rgb(51, 164, 33);
+    position: absolute;
+    top: 0px;
+    right: 3.5em;
+    z-index: 99 !important;
+}
+
+#User {
+	padding: 15px 15px;
+	margin: 2px;
+    text-align: center;
+	background-color: rgb(51, 164, 33);
+	position: absolute;
+	top: 0px;
+	right: 7em;
+}
+
+#Launch {
+	padding: 10px 20px;
+	margin: 2px;
+    text-align: center;
+	font-size: 40px;
+	font-family: Arial;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	transition-duration: 0.1s;
+}
+
+#jumbotron {
+	color: white;
+	text-align: center;
+	font-family: impact;
+	text-shadow: 2px 2px 8px rgb(51, 164, 33);
+	padding: 0 0;
+	margin: auto;
+	background-color: rgb(25, 27, 42);
+}
+
+#iconsTable {
+	width: 100%;
+	margin: auto;
+	color: white;
+}
+
+#nose {
+	background-color: black;
+	position: absolute;
+	margin-top: 97px;
+	margin-left: 405px;
+	width: 10px;
+	height: 4px;
+}
+
+#nose:hover {
+	background-color: red;
+}
+
+#catTable {
+	width: 487px;
+	height: 181px;
+	margin: auto;
+}
+
+#rocketCat {
+	margin: auto;
+}
+
+#rcPic {
+	width: 487px;
+	height: 181px;
+}
+
+#mainMenu {
+	padding: 15px 15px;
+	margin: 2px;
+    text-align: center;
+	font-size: 40px;
+    display: inline-block;
+	background-color: white;
+	color: #ffcc99;
+	transition-duration: 0.1s;
+}
+
+#leaderboard {
+	color: white;
+	margin: auto;
+	text-align: center;
+}
+
+#topTen {
+	margin: auto;
+	width: 70%;
+}
+
+th {
+	text-align: center;
+    font-size: 1.5em;
+}
+
+td {
+	text-align: center;
+}
+
+.return {
+	padding: 10px 10px;
+	margin: 5px;
+    text-align: center;
+	font-size: 40px;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	color: white;
+	transition-duration: 0.1s;
+}
+
+#signout {
+	padding: 10px 10px;
+	margin: 5px;
+    text-align: center;
+	font-size: 40px;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	color: white;
+	transition-duration: 0.1s;
+}
+
+#refresh {
+	padding: 10px 10px;
+	margin: 5px;
+    text-align: center;
+	font-size: 40px;
+    display: inline-block;
+	background-color: rgb(51, 164, 33);
+	color: white;
+	transition-duration: 0.1s;
+}
+
+#profilePic {
+	height: 100px;
+	width: 100px;
+	background-color: white;
+	font-size: 100px;
+	margin: auto;
+	margin-bottom: 10px;
+	color: gray;
+}
+
+#topTen {
+    text-align: left;
+}
+
+#results {
+	margin: auto;
+	text-align: center;
+	font-size: 20px;
+}
+
+#settingsDiv {
+    position:absolute;
+    width: 50em;
+    height: 35em;
+    background:black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:10px;
+    z-index:3;
+}
+
+.portrait {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: black;
+}
+.portrait p {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: red;
+}
+
+#default_node_img { background: url(img/icon_obj_default.png) no-repeat -9999px -9999px;}
+#start_node_img { background: url(img/icon_obj_start.png) no-repeat -9999px -9999px;}
+#obj01_node_img { background: url(img/icon_obj_01.png) no-repeat -9999px -9999px;}
+#obj02_node_img { background: url(img/icon_obj_02.png) no-repeat -9999px -9999px;}
+#obj03_node_img { background: url(img/icon_obj_03.png) no-repeat -9999px -9999px;}
+#traveller_rocket { background: url(img/traveller_rocket.png) no-repeat -9999px -9999px;}
