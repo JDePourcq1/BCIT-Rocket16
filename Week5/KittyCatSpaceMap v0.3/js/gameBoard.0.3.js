@@ -581,10 +581,11 @@ document.getElementById('update').onclick = function() {
 
 window.onload = function() {
 	canvas = document.getElementById('GameBoard');
+	canvas.width = document.body.clientWidth;
+	canvas.height = document.body.clientHeight;
 	paper.setup(canvas);
 	board = new GameBoard();
-	canvas.width = document.body.offsetWidth;
-	canvas.height = document.body.offsetHeight;
+
 
 	// this resizes and centers the game board when the canvas is resized
 	paper.view.onResize = function(event) {
@@ -597,8 +598,7 @@ window.onload = function() {
  * Center game board to canvas
  */
 function centerBoard() {
-	paper.view.center.x = canvas.width/2;
-	paper.view.center.y = canvas.height/2;
+
 	paper.project.activeLayer.position = paper.view.center;
 }
 
@@ -608,8 +608,8 @@ function centerBoard() {
  function zoomBoard() {
 	var lbounds = paper.project.activeLayer.bounds;
 	var vbounds = {
-		width: document.body.offsetWidth,
-		height: document.body.offsetHeight
+		width: document.body.clientWidth,
+		height: document.body.clientHeight
 	};
 
 	var zoomFactorW = (vbounds.width * 0.9) / 480;
