@@ -1,0 +1,177 @@
+@media screen and (max-width: 320px) {
+    #menu {
+        width: 100%;
+        top: 15%;
+        height: 70%;
+        left: 0;
+        transform: translate(0,0);
+    }
+    #settingsDiv {
+        width: 100%;
+        top: 15%;
+        height: 70%;
+        left: 0;
+        transform: translate(0,0);
+    }
+    .menuButton {
+        margin: 0.6em auto;
+    }
+	#catTable {
+		width: 182px;
+		height: 67px;
+	}
+	#rcPic {
+		width: 182px;
+		height: 67px;
+	}
+	#nose {
+		display: none;
+	}
+	#Launch {
+		font-size: 20px;
+		padding: 5px 10px;
+	}
+}
+
+@media screen and (min-width: 321px) and (max-width: 449px) {
+    #menu {
+        width: 100%;
+        top: 15%;
+        height: 70%;
+        left: 0;
+        transform: translate(0,0);
+    }
+    #settingsDiv {
+        width: 100%;
+        top: 15%;
+        height: 70%;
+        left: 0;
+        transform: translate(0,0);
+    }
+    .menuButton {
+        margin: 1.5em auto;
+    }
+	#catTable {
+		width: 182px;
+		height: 67px;
+	}
+	#rcPic {
+		width: 182px;
+		height: 67px;
+	}
+	#nose {
+		display: none;
+	}
+	#Launch {
+		font-size: 20px;
+		padding: 5px 10px;
+	}
+}
+
+@media screen and (min-width: 450px) and (max-width: 480px) {
+    #menu {
+        width: 80%;
+        top: 15%;
+        height: 75%;
+        left: 7.5%;
+        transform: translate(0,0);
+    }
+    #settingsDiv {
+        width: 80%;
+        top: 15%;
+        height: 75%;
+        left: 7.5%;
+        transform: translate(0,0);
+    }
+    .menuButton {
+        margin: auto;
+    }
+	#catTable {
+		width: 182px;
+		height: 67px;
+	}
+	#rcPic {
+		width: 182px;
+		height: 67px;
+	}
+	#nose {
+		display: none;
+	}
+	#Launch {
+		font-size: 20px;
+		padding: 5px 10px;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 600px) {
+    #menu {
+        top: 15%;
+        height: 80%;
+        left: 5%;
+        width: 90%;
+        transform: translate(0,0);
+    }
+    #settingsDiv {
+        top: 15%;
+        height: 80%;
+        left: 5%;
+        width: 90%;
+        transform: translate(0,0);
+    }
+    .menuButton {
+        margin: auto;
+    }
+	#catTable {
+		width: 285px;
+		height: 106px;
+	}
+	#rcPic {
+		width: 285px;
+		height: 106px;
+	}
+	#nose {
+		margin-left: 237px;
+		margin-top: 56px;
+	}
+	#Launch {
+		font-size: 30px;
+		padding: 8px 15px;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 780px) {
+    #menu {
+        top: 15%;
+        height: 80%;
+        left: 10%;
+        width: 80%;
+        transform: translate(0,0);
+    }
+    #settingsDiv {
+        top: 15%;
+        height: 80%;
+        left: 10%;
+        width: 80%;
+        transform: translate(0,0);
+    }
+    .menuButton {
+        margin: 0.3em auto;
+    }
+	#catTable {
+		width: 365px;
+		height: 135px;
+	}
+	#rcPic {
+		width: 365px;
+		height: 135px;
+	}
+	#nose {
+		margin-left: 303px;
+		margin-top: 72px;
+	}
+	#Launch {
+		font-size: 30px;
+		padding: 8px 15px;
+	}
+}
+
