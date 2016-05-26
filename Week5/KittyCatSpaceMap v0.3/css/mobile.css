@@ -2,7 +2,7 @@
     #menu {
         width: 100%;
         top: 15%;
-        height: 70%;
+        height: auto;
         left: 0;
         transform: translate(0,0);
     }
@@ -37,7 +37,7 @@
     #menu {
         width: 100%;
         top: 15%;
-        height: 70%;
+        height: auto;
         left: 0;
         transform: translate(0,0);
     }
@@ -70,7 +70,7 @@
 
 @media screen and (min-width: 450px) and (max-width: 480px) {
     #menu {
-        width: 80%;
+        width: auto;
         top: 15%;
         height: 75%;
         left: 7.5%;
@@ -106,7 +106,7 @@
 @media screen and (min-width: 481px) and (max-width: 600px) {
     #menu {
         top: 15%;
-        height: 80%;
+        height: auto;
         left: 5%;
         width: 90%;
         transform: translate(0,0);
@@ -142,7 +142,7 @@
 @media screen and (min-width: 601px) and (max-width: 780px) {
     #menu {
         top: 15%;
-        height: 80%;
+        height: auto;
         left: 10%;
         width: 80%;
         transform: translate(0,0);
