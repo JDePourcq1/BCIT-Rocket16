@@ -569,6 +569,9 @@ function centerBoard() {
 
 //Zooms the game board in relation to the canvas
 function zoomBoard() {
-	var zoomFactor = canvas.width <= canvas.height ? canvas.width / 480 : canvas.height / 320;
+	var lbounds = paper.project.activeLayer.bounds;
+	var vbounds = paper.view.bounds;
+	var zoomFactor = lbounds.width <= lbounds.height ? vbounds.width / 480 : vbounds.height / 320;
+	console.log(zoomFactor);
 	paper.view.zoom = zoomFactor;
 }
