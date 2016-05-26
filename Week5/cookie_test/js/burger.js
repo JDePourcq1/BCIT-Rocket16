@@ -206,23 +206,6 @@ $(document).ready(function(){
         }
     });
     
-    //sign out button
-    $('#signout').click(function() {
-        currentUser = null;
-		deleteCookie("cookieUser");
-        document.getElementById("username").innerHTML = "";
-        document.getElementById('profileButton').innerHTML = "Sign-In";
-        $('#mainPage').attr('style', 'display: none;');
-        $('#courseSelect').attr('style', 'display: none;');
-        $('#loginPage').attr('style', 'display: ;');
-        $('#gameScreen').attr('style', 'display: none;');
-        $('#leaderboard').attr('style', 'display: none;');
-        $('#profilePage').attr('style', 'display: none;');
-        $('#resultsPage').attr('style', 'display: none;');
-        if(menuOpen)
-            openMenu();
-    });
-    
     //profile/signin button
     $('#profileButton').click(function() {
         if(currentUser == null) {
