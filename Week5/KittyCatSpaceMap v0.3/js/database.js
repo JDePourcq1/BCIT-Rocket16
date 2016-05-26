@@ -57,7 +57,8 @@ var logIn = function () {
             for(i = 0; i < data.length; i++) {
                 if(user.toLowerCase() == (data[i].username).toLowerCase()) {
                     if(pass == data[i].password) {
-                        setupUser();
+                        setupUser(data[i]);
+                        $("#logForm")[0].reset();
                         goToProfile();
                         return false;
                     }
@@ -72,10 +73,9 @@ var logIn = function () {
 /**
  * sets up the user information.
  */
-var setupUser = function() {
-    currentUser = data[i].username;
+var setupUser = function(data) {
+    currentUser = data.username;
     document.getElementById("username").innerHTML = "<p>" + currentUser +"</p>";
-    $("#logForm")[0].reset();
     document.getElementById('profileButton').innerHTML = "Profile";
 }
 
