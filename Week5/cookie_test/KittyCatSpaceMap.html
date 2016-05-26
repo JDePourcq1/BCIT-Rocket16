@@ -1,0 +1,405 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Kitty Cat Space Map</title>
+        
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/matt.css"/>
+		<link rel="stylesheet" href="css/mobile.css"/>
+		<link rel="stylesheet" href="css/multi-screen-css.css" type="text/css" />
+        
+        <script type="text/javascript" src="js/time.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/multi-screen.js"></script>
+        <script type="text/javascript">$(document).ready(function() { MultiScreen.init(); });</script>
+        <script type="text/javascript" src="js/burger.js"></script>
+        <script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/settings.js"></script>
+        
+        <meta charset="utf-8">
+	</head>
+	
+	<body id="body" onload="checkCookie()">
+        <audio id="BGM" src="sound\DuckTales_Duck_Blur_OC_ReMix.mp3" loop="loop"></audio>
+		<audio id="SFX" src="sound\sfx2.wav"></audio>
+    
+        <!--CURRENT USER-->
+        <div id="username">
+        </div>
+    
+        <!--MENU!!!-->
+        <div id="menuDiv"></div>
+        
+        <!--MAIN PAGE-->
+        <div id="mainPage">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div>
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+            <div id="User">
+                <span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
+            </div>	
+            
+            <div id="jumbotron" class="jumbotron">
+                <h1>Kitty Cat</h1>
+                <h1>Space Map</h1>
+                
+                <table id="catTable">
+                    <tr>
+                        <td>
+                            <div id="rocketCat">
+                                <div id="nose"></div>
+                                <img id="rcPic" src="img/rc3.png" width="487px" height="181px"/>
+                            </div>
+                        <td>
+                    </tr>
+                </table>
+                
+                <div id="Launch">Launch</div>
+            </div>
+		</div>
+        
+        <!--COURSE SELECT PAGE-->
+        <div id="courseSelect" style="display:none;">
+        
+            <div id="screen1" class="ms-container ms-default">
+                <!-- screen1 content -->
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div>                
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>
+                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 1 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                        <div class="col-sm-3">
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            <img id="course01" src="img\level1.jpg" alt="World 1" >
+                        </div>
+                        <div class="col-sm-3">
+                            <button id="triangle-right" class="ms-nav-link" data-ms-target="screen2" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                        </div>
+                    </div>
+                    
+                    <br /><br />
+                        
+                    <!--******For Testing Purposes******-->
+                    <button id="score" class="button" type="button">increase score</button>
+                    <div id="output">2</div>
+                
+                    <p id ="test"></p>
+                    <button id="test" class="button" onclick="myfunction()">test unlock</button>
+                    
+                    <button class="button" onclick="disable()"> disable right</button>
+                    
+                    
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+
+            <div id="screen2" class="ms-container">
+                <!-- screen2 content -->
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div>
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>
+				
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 2 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <button id="triangle-left" class="ms-nav-link" data-ms-target="screen1" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                        </div>
+                        <div class="col-sm-6">
+                            <img src="img\level1.jpg" alt="World 1" >
+                        </div>
+                        <div class="col-sm-3">
+                            <button id="triangle-right" class="ms-nav-link" data-ms-target="screen3" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                        </div>
+                    </div>
+                </div>
+                
+				<div id="menuDiv"></div>
+            </div>
+            
+            <div id="screen3" class="ms-container">
+                <!-- screen3 content -->
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div> 
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 3 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <button id="triangle-left" class="ms-nav-link" data-ms-target="screen2" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                        </div>
+                        <div class="col-sm-6">
+                            <img src="img\level1.jpg" alt="World 1" >
+                        </div>
+                        <div class="col-sm-3">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+            
+            <div id="master" class="ms-container ms-default">
+                <!--master screen content-->
+                <p>master</p>
+            </div>
+            
+            
+            <!-- functions -->
+            <script>
+				$('#score').click(function() {
+					$('#output').html(function(i, val) { return val*1+5 });
+				});
+				
+				
+				function myfunction(){
+					var number = parseInt($('#output').text().trim(),10);
+					if( number > 7){
+						$("#test").html("<p>unlocking right</p>");
+						$('#triangle-right').prop("disabled",false);
+					}
+				}
+				
+				function disable(){
+					$('#triangle-right').prop("disabled",true);
+				} 
+				
+				function unlock(){
+					$('#triangle-right').prop("disabled",false);
+				}
+            </script>
+        </div>
+        
+        <!--LOGIN SCREEN-->
+        <div id="loginPage" style="display:none">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+            
+            <h1>Sign Up</h1>
+            <form id="signForm" onsubmit="return signUp()" class="form-horizontal">
+                <div class ="form-group">
+                    <label for="Username" class="col-sm-offset-1 col-sm-2 control-label"> Username:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Username" name="user" placeholder="Enter Username" required/>
+                    </div>
+                </div>
+
+                <div class ="form-group">
+                    <label for="E-Mail" class="col-sm-offset-1 col-sm-2 control-label"> E-Mail:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="E-Mail" name="mail" placeholder ="Enter E-Mail" required pattern="[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+\.?[A-Za-z0-9]+?"/>
+                    </div>
+                </div>
+
+                <div class ="form-group">
+                    <label for="Password" class="col-sm-offset-1 col-sm-2 control-label"> Password:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Password" name="pass" placeholder ="Enter Password" required/>
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-3 col-sm-9">
+                    <input type="submit" class="btn submitBtn btn-sm" name="SignSubmit" value="SignUp" />
+                </div>
+            </form>
+
+            <h1>Log In</h1>
+            <form id="logForm" onsubmit="return logIn()" class="form-horizontal">
+                <div class ="form-group">
+                    <label for="logUser" class="col-sm-offset-1 col-sm-2 control-label"> Username:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="logUser" name="logUsername" placeholder ="Enter Username" required />
+                    </div>
+                </div>
+
+                <div class ="form-group">
+                    <label for="logPassword" class="col-sm-offset-1 col-sm-2 control-label"> Password:</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="logPassword" name="logPass" placeholder ="Enter Password" required/>
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-3 col-sm-9">
+                    <input type="submit" class="btn submitBtn btn-sm" name="logSubmit" value="LogIn" />
+                </div>
+				
+			</form>
+        </div>
+        
+        <!--RESULTS PAGE-->
+        <div id="resultsPage" style="display:none;">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+            
+            <h1>Results!!</h1>
+            
+            <h2 id="resultScore"></h2>
+            
+            <div id="resultButtons">
+                <button id="profileButton" class="btn">Sign-In</button>
+                <button id="retryButton" class="btn">Retry</button>
+                <button id="continueButton" class="btn">Continue</button>
+            </div>
+        </div>
+        
+        <!--Leaderboard Page-->
+		<div id="leaderboard" style="display:none;">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            
+			<h1>Top Ten</h1>
+			
+			<table class="table" id="topTen">
+				<tr>
+					<th>Name</th>
+					<th>Time</th>
+					<th>Score</th>
+				</tr>
+			</table>
+			
+			<div id="refresh">
+				<span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
+			</div>
+			
+			<div class="return">
+				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true" ></span>
+			</div>
+		</div>
+        
+        <!--Profile Page-->
+		<div id="profilePage" style="display: none;">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+			
+			<div id="profilePic">
+				 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+			</div>
+			
+			<h1 id="usernameHeader">Name<h1>
+			
+			<table class="table" id="results">
+				<tr>
+					<th>Course</th>
+					<th>Time</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td id="course1Best"></td>
+				</tr>
+			</table>
+			
+			<div class="return">
+				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+			</div>
+            <div id="signout">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </div>
+		</div>
+        
+        <!--SETTINGS SCREEN-->
+		<div id="settingsPage" style="display:none">            
+			<div id="settingsDiv">
+				<h1>Settings</h1>
+				<div class="row">
+					<div class="col-sm-6 col-md-3 col-md-offset-3">
+						<h2> Music </h2>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<input type="button" value="ON" id="bgmButton" class="button" onclick="toggleBGM(this)">
+					</div>
+					<div class="col-md-3"></div>
+					
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6 col-md-3 col-md-offset-3">
+						<h2> SFX </h2>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<input type="button" value="ON" id="sfxButton" class="button" onclick="toggleSFX(this)">
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				
+				<br />
+				
+				<input type="button" class="button" value="back" id="settingsBack" onclick="hide()">
+			</div>
+		</div> 	
+        
+        <!--GAME SCREEN-->
+        <div id="gameScreen" style="display:none;">
+            <!--[if lt IE 8]>
+                <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+                        
+            <div id="timer"></div>
+            
+            <button id="update" style="display:none;"></button>
+            
+            <canvas id="GameBoard" height='360' width='480'></canvas>
+
+            <script src="js/plugins.js"></script>
+            <script type="text/javascript" src="js/vendor/paper-full.js"></script>
+            <script type="text/javascript" src="js/gameBoard.0.3.js" canvas="GameBoard"></script>
+            
+            <div id="readyState"></div>
+        </div>
+	</body>
+</html>
