@@ -1,0 +1,577 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Kitty Cat Space Map</title>
+        
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+		<link rel="stylesheet" href="css/mobile.css"/>
+		<link rel="stylesheet" href="css/multi-screen-css.css" type="text/css" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/global.js"></script>
+        <script type="text/javascript" src="js/cookie.js"></script>
+        <script type="text/javascript" src="js/course.js"></script>
+        <script type="text/javascript" src="js/time.js"></script>
+        <script type="text/javascript" src="js/multi-screen.js"></script>
+        <script type="text/javascript">$(document).ready(function() { MultiScreen.init(); });</script>
+        <script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/burger.js"></script>
+        <script type="text/javascript" src="js/settings.js"></script>
+        <script type="text/javascript" src="js/cookie.js"></script>
+        
+        <meta charset="utf-8">
+	</head>
+	
+	<body id="body">
+        <audio id="BGM" src="sound\pushing-onwards.mp3" volume=0.2 loop="loop"></audio>
+		<audio id="SFX" src="sound\sfx2.wav"></audio>
+        <audio id="cheer" src="sound\cheer.mp3"></audio>
+        <audio id="bad" src="sound\scream.mp3"></audio>
+    
+        <!--PORTRAIT MODE WRAPPER-->
+        <div class="portrait">
+            <p>This game is optimized for landscape mode!!!</p>
+        </div>
+    
+        <!--CURRENT USER-->
+        <div id="username">
+        </div>
+    
+        <!--MENU!!!-->
+        <div id="menuDiv"></div>
+        
+        <!--MAIN PAGE-->
+        <div id="mainPage">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div>
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+            <div id="User">
+                <span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
+            </div>	
+            
+            <div id="jumbotron" class="jumbotron">
+                <h1>Kitty Cat</h1>
+                <h1>Space Map</h1>
+                
+                <table id="catTable">
+                    <tr>
+                        <td>
+                            <div id="rocketCat">
+                                <div id="nose"></div>
+                                <img id="rcPic" src="img/rc3.png" width="487px" height="181px"/>
+                            </div>
+                        <td>
+                    </tr>
+                </table>
+                
+                <div id="Launch">Launch</div>
+            </div>
+            <a href="http://www.geohewitt.com/en/" target="_blank">
+                <img src="img/GeorgeHewittCo.png" alt="Sponsor" id="sponsor">
+            </a>
+		</div>
+        
+        <!--COURSE SELECT PAGE-->
+        <div id="courseSelect" style="display:none;">
+        
+            <div id="tutorialPage" class="ms-container">
+                <!-- tutorialPage content -->
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div>                
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>
+				
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1> Tutorial </h1>
+                        <br>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="courseImg">
+                        <!-- tutorial carousel -->
+                        <div id="tutCarousel" class="carousel slide tut" data-ride="carousel" data-interval="false">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                  <img src="img\tut1.png" alt="ooops">
+                                </div>
+
+                                <div class="item">
+                                  <img src="img\tut2.png" alt="something">
+                                </div>
+
+                                <div class="item">
+                                  <img src="img\tut3.png" alt="went">
+                                </div>
+
+                                <div class="item">
+                                  <img src="img\tut4.png" alt="wrong">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#tutCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#tutCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>                    
+                    <button id="triangle-right" class="ms-nav-link triangle goBack" data-ms-target="screen1" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                </div>
+                
+                
+				<div id="menuDiv"></div>
+			</div>
+        
+            <div id="screen1" class="ms-container ms-default">
+                <!-- screen1 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div>                
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>
+                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 1 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div>
+                        <button id="triangle-left" class="ms-nav-link triangle" data-ms-target="tutorialPage" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)" style="font-weight:bold; position:relative;top:10px;"><br><br><p>Tutorial</p></button>  
+                        <img id="course1" src="img\course1.png" alt="World 1" class="courseImg" onclick="goToCourse(0);">
+                        <button id="triangle-right" class="ms-nav-link triangle" data-ms-target="screen2" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                    </div>
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+
+            <div id="screen2" class="ms-container">
+                <!-- screen2 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div>
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>
+				
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 2 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                            <button id="triangle-left" class="ms-nav-link triange" data-ms-target="screen1" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                            <img id="course2" src="img\course2.png" alt="World 2" class="courseImg" onclick="goToCourse(1);">
+                            <button id="triangle-right" class="ms-nav-link trianlge" data-ms-target="screen3" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                    </div>
+                </div>
+                
+				<div id="menuDiv"></div>
+            </div>
+            
+            <div id="screen3" class="ms-container">
+                <!-- screen3 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div> 
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 3 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div class="row">
+                        <button id="triangle-left" class="ms-nav-link triangle" data-ms-target="screen2" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                        <img id="course3" src="img\course3.png" alt="World 3" class="courseImg" onclick="goToCourse(2);">
+                        <button id="triangle-right" class="ms-nav-link triangle" data-ms-target="screen4" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                    </div>
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+            
+            <div id="screen4" class="ms-container">
+                <!-- screen4 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div> 
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 4 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div>
+                        <button id="triangle-left" class="ms-nav-link triangle" data-ms-target="screen3" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                        <img id="course4" src="img\course4.png" alt="World 4" class="courseImg" onclick="goToCourse(3);">
+                        <button id="triangle-right" class="ms-nav-link triangle" data-ms-target="screen5" data-ms-animation="left" data-ms-enter-animation="right" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button> 
+                    </div>
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+            
+            <div id="screen5" class="ms-container">
+                <!-- screen5 content -->
+                <div class="portrait">
+                    <p>This game is optimized for landscape mode!!!</p>
+                </div>
+                <div class="burger">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+                </div> 
+                <div class="leader">
+                    <span class="glyphicon glyphicon-stats"></span>
+                </div>                
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1> Course Select </h1>
+                            <h2> level 5 </h2>
+                        </div>
+                    </div>
+                    <br />
+                    
+                    <div>
+                            <button id="triangle-left" class="ms-nav-link triangle" data-ms-target="screen4" data-ms-animation="right" data-ms-enter-animation="left" data-ms-distance="0" data-ms-horizontal-distance="0" href="javascript:void(0)"></button>
+                            <img id="course5" src="img\course5.png" alt="World 4" class="courseImg" onclick="goToCourse(4);">
+                    </div>
+                </div>
+                <div id="menuDiv"></div>
+            </div>
+            
+            <div id="master" class="ms-container ms-default">
+                <!--master screen content-->
+                <p>master</p>
+            </div>
+        </div>
+        
+        <!--LOGIN SCREEN-->
+        <div id="loginPage" style="display:none">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+            
+            <h1>Sign Up</h1>
+            <form id="signForm" onsubmit="return signUp()" class="form-horizontal">
+                <div class ="form-group">
+                    <label for="Username" class="col-sm-offset-1 col-sm-2 control-label"> Username:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Username" name="user" placeholder="Enter Username" required/>
+                    </div>
+                </div>
+
+                <div class ="form-group">
+                    <label for="E-Mail" class="col-sm-offset-1 col-sm-2 control-label"> E-Mail:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="E-Mail" name="mail" placeholder ="Enter E-Mail" required pattern="[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+\.?[A-Za-z0-9]+?"/>
+                    </div>
+                </div>
+
+                <div class ="form-group">
+                    <label for="Password" class="col-sm-offset-1 col-sm-2 control-label"> Password:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="Password" name="pass" placeholder ="Enter Password" required/>
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-3 col-sm-9">
+                    <input type="submit" class="btn submitBtn btn-sm" name="SignSubmit" value="SignUp" />
+                </div>
+            </form>
+
+            <h1>Log In</h1>
+            <form id="logForm" onsubmit="return logIn()" class="form-horizontal">
+                <div class ="form-group">
+                    <label for="logUser" class="col-sm-offset-1 col-sm-2 control-label"> Username:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="logUser" name="logUsername" placeholder ="Enter Username" required />
+                    </div>
+                </div>
+
+                <div class ="form-group">
+                    <label for="logPassword" class="col-sm-offset-1 col-sm-2 control-label"> Password:</label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="logPassword" name="logPass" placeholder ="Enter Password" required/>
+                    </div>
+                </div>
+
+                <div class="col-sm-offset-3 col-sm-9">
+                    <input type="submit" class="btn submitBtn btn-sm" name="logSubmit" value="LogIn" />
+                </div>
+            </form>
+        </div>
+        
+        <!--RESULTS PAGE-->
+        <div id="resultsPage" style="display:none;">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+            
+            <h1>Results!!</h1>
+            
+            <h2 id="resultScore"></h2>
+            
+            <div id="resultButtons" class="container">
+                <div class="col-xs-4" style="padding:5px;">
+                    <button id="profileButton" class="btn menuButton">Sign-In</button>
+                </div>
+                <div class="col-xs-4" style="padding:5px;">
+                    <button id="retryButton" class="btn menuButton">Retry</button>
+                </div >
+                <div class="col-xs-4" style="padding:5px;">
+                    <button id="continueButton" class="btn menuButton">Continue</button>
+                </div>
+            </div>
+        </div>
+        
+        <!--Leaderboard Page-->
+		<div id="leaderboard" style="display:none;">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            
+			<h1>Top Ten</h1>
+            <h2 id="leaderCourse">Course</h2>
+			<div>
+                <button id="L1" class="btn leaderButton current" onclick="setupLeaderboard(0);">1</button>
+                <button id="L2" class="btn leaderButton" onclick="setupLeaderboard(1);">2</button>
+                <button id="L3" class="btn leaderButton" onclick="setupLeaderboard(2);">3</button>
+                <button id="L4" class="btn leaderButton" onclick="setupLeaderboard(3);">4</button>
+                <button id="L5" class="btn leaderButton" onclick="setupLeaderboard(4);">5</button>
+            </div>
+            <br>
+            
+			<table class="table" id="topTen">
+				<tr>
+					<th>Name</th>
+					<th>Time</th>
+					<th>Score</th>
+				</tr>
+			</table>
+			
+			<div class="return">
+				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true" ></span>
+			</div>
+		</div>
+        
+        <!--Profile Page-->
+		<div id="profilePage" style="display: none;">
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+            <div class="leader">
+                <span class="glyphicon glyphicon-stats"></span>
+            </div>
+			
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+				
+					<div id="carouselItem1" class="item active" >
+						<img src="img/rc2.png" alt="Rocket Cat" width="55px" height="55px" onclick="setTravellerIcon('default');">
+					</div>
+
+					<div id="carouselItem2" class="item">
+						<img id="item1Lock" src="img/lock.png" alt="Locked" width="150px" height="150px">
+						<img id="item1" src="img/traveller_rocket.png" alt="Basic Rocket" width="150px" height="150px" onclick="setTravellerIcon('1');">
+                        <div id="C1" class="carousel-caption">
+                            <p>Beat Course 1 within: 1:35.0</p>
+                        </div>
+					</div>
+
+					<div id="carouselItem3" class="item">
+						<img id="item2Lock" src="img/lock.png" alt="Locked" width="150px" height="150px">
+						<img id="item2" src="img/rd.png" alt="Rocket Dog" width="150px" height="150px" onclick="setTravellerIcon('2');">
+                        <div id="C2" class="carousel-caption">
+                            <p>Beat Course 2 within: 1:40.0</p>
+                        </div>
+					</div>
+					
+					<div id="carouselItem4" class="item">
+						<img id="item3Lock" src="img/lock.png" alt="Locked" width="150px" height="150px">
+						<img id="item3" src="img/rr.png" alt="Rocket Raccoon" width="150px" height="150px" onclick="setTravellerIcon('3');">
+                        <div id="C3" class="carousel-caption">
+                            <p>Beat Course 3 within: 1:45.0</p>
+                        </div>
+					</div>
+					
+					<div id="carouselItem5" class="item">
+						<img id="item4Lock" src="img/lock.png" alt="Locked" width="150px" height="150px">
+						<img id="item4" src="img/rb.png" alt="Rocket Bunny" width="150px" height="150px" onclick="setTravellerIcon('4');">
+                        <div id="C4" class="carousel-caption">
+                            <p>Beat Course 4 within: 2:00.0</p>
+                        </div>
+					</div>
+					
+					<div id="carouselItem6" class="item">
+						<img id="item5Lock" src="img/lock.png" alt="Locked" width="150px" height="150px">
+						<img id="item5" src="img/gold_traveller.png" alt="Gold Rocket" width="150px" height="150px" onclick="setTravellerIcon('5');">
+                        <div id="C5" class="carousel-caption">
+                            <p>Beat Course 5 within: 2:30.0</p>
+                        </div>
+					</div>
+					
+					<div id="carouselItem7" class="item">
+						<img id="item6Lock" src="img/lock.png" alt="Locked" width="150px" height="150px">
+						<img id="item6" src="img/easter.png" alt="David Luiz" width="150px" height="150px" onclick="setTravellerIcon('easter');">
+                        <div id="C6" class="carousel-caption">
+                            <p>Find Easter Egg</p>
+                        </div>
+					</div>
+					
+				</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+			</div>
+			
+			<h1 id="usernameHeader">Name<h1>
+			
+			<table class="table" id="results">
+				<tr>
+					<th>Course</th>
+					<th>Time</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td id="course1Best">N/A</td>
+				</tr>
+                <tr>
+					<td>2</td>
+					<td id="course2Best">N/A</td>
+				</tr>
+                <tr>
+					<td>3</td>
+					<td id="course3Best">N/A</td>
+                </tr>
+                <tr>
+					<td>4</td>
+					<td id="course4Best">N/A</td>
+				</tr>
+                <tr>
+                    <td>5</td>
+					<td id="course5Best">N/A</td>
+                </tr>
+			</table>
+			
+			<div class="return">
+				<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+			</div>
+            <div id="signout">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </div>
+		</div>
+        
+        <!--SETTINGS SCREEN-->
+		<div id="settingsPage" style="display:none">            
+			<div id="settingsDiv">
+				<h1>Settings</h1>
+				<div class="row">
+					<div class="col-sm-6 col-md-3 col-md-offset-3">
+						<h2> Music </h2>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<input type="button" value="ON" id="bgmButton" class="button" onclick="toggleBGM(this)">
+					</div>
+					<div class="col-md-3"></div>
+					
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6 col-md-3 col-md-offset-3">
+						<h2> SFX </h2>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<input type="button" value="ON" id="sfxButton" class="button" onclick="toggleSFX(this)">
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				
+				<br />
+				
+				<input type="button" class="button" value="back" id="settingsBack" onclick="hide()">
+			</div>
+		</div> 	
+        
+        <!--GAME SCREEN-->
+        <div id="gameScreen" style="display:none;">
+            <!--[if lt IE 8]>
+                <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+            <div class="burger">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" ></span>
+            </div> 
+                        
+            <div id="timer"></div>
+            
+            <button id="update" style="display:none;"></button>
+            
+            <canvas id="GameBoard" resize='true' keepalive='true'></canvas>
+
+            <script src="js/plugins.js"></script>
+            <script type="text/javascript" src="js/vendor/paper-full.js"></script>
+            <script type="text/javascript" src="js/gameBoard.0.3.js" canvas="GameBoard"></script>
+            
+            <div id="readyState"></div>
+        </div>
+	</body>
+</html>
